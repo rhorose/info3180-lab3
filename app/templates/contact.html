@@ -1,0 +1,52 @@
+
+{% extends 'base.html' %}
+
+{% block main %}
+<head> 
+    <h2>Contact Form</h2>
+    <hr>
+</head>
+
+<form action="{{ url_for('contact') }}" method="post">
+
+    {{ form.csrf_token }}
+
+    <body> 
+    <h4>Fill in this form to contact owners</h4>
+
+
+    <div>
+        {{ form.name.label }} <span class='require'>(Required)</span>
+                <p>Please enter your full name</p>
+                {{ form.name(class="FormCon")}}
+    </div>
+
+    <p>
+
+    <div>
+        {{ form.email.label }} <span class='require'>(Required)</span>
+                <p>Please enter your e-mail address</p>
+                {{ form.email(class="FormCon")}}
+
+    </div>
+
+    <p>
+
+    <div>
+        {{ form.subject.label }} <span class='require'>(Required)</span>
+        <p>Please enter the subject for your message.</p>
+        {{ form.subject(class="FormCon")}}  
+    </div>
+
+    <p>
+    <div>
+        {{ form.message.label }} <span class='require'>(Required)</span>
+        <p>Please enter the subject for your message.</p>
+        {{ form.message(class="FormCon")}}
+    </div>
+
+    <button type="submit" class="submitting">Send </button>
+
+    </body>
+</form>
+{% endblock %}
